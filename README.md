@@ -9,6 +9,8 @@ Once desired network connectivity is achieved, one may start up streaming and co
 
 For any practical application, ssh to your autotron, log into it and start up the servers by typing in sudo sh start_stream.sh. If you wish to stop the servers, do the same with stop_stream.sh script.
 
+Note however that start_stream script runs automatically at startup. This can changed by removing the corresponding command in crontab (access by crontab -e).
+
 # Usage
 
 Once running, the stream is available on :8080/?action=stream as an MJPG stream. A simple preview can be accessed at :8080/stream_simple.html.
