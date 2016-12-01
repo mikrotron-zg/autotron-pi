@@ -7,6 +7,8 @@ First step is to connect to RPi to your network. First connection is done via a 
 
 Once desired network connectivity is achieved, one may start up streaming and control server scripts. It is possible to start each individually, but for standard operation, scripts start_stream and stop_stream are provided. If running other python functionality on the same device, please remember that start_stream and stop_stream do not discriminate between python scripts and may cause unexpected behaviour in your other applications.
 
+For any practical application, ssh to your autotron, log into it and start up the servers by typing in sudo sh start_stream.sh. If you wish to stop the servers, do the same with stop_stream.sh script.
+
 # Usage
 
 Once running, the stream is available on :8080/?action=stream as an MJPG stream. A simple preview can be accessed at :8080/stream_simple.html.
