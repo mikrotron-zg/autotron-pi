@@ -79,10 +79,10 @@ module cam_hold(){
     difference(){
         union(){
             cube([cam_h,cam_w+2*cam_holder_d,flath],false);
-            cube([cam_h+flath*2+r_hole*2,cam_holder_d,flath+cam_holder_h/2],false);
-            translate([0,cam_w+cam_holder_d,0])cube([cam_h+flath*2+r_hole*2,cam_holder_d,flath+cam_holder_h/2],false);
+            cube([cam_h+flath*4+r_hole*2,cam_holder_d,flath+cam_holder_h/2],false);
+            translate([0,cam_w+cam_holder_d,0])cube([cam_h+flath*4+r_hole*2,cam_holder_d,flath+cam_holder_h/2],false);
         }
-        translate([cam_h+flath*2,0,flath+r_hole])rotate([90,0,0])cylinder(200,r_hole,r_hole,true,$fn=32);
+        translate([cam_h+flath*4,0,flath+r_hole])rotate([90,0,0])cylinder(200,r_hole,r_hole,true,$fn=32);
         translate([cam_h/2-2,cam_w/2+cam_holder_d,0])cylinder(20,cam_r,cam_r,true,$fn=32);
         translate([cam_h/2-2,cam_w+cam_holder_d-flath,0])cylinder(20,cam_s_r,cam_s_r,true,$fn=32);
         translate([cam_h/2-2,cam_holder_d+flath,0])cylinder(20,cam_s_r,cam_s_r,true,$fn=32);
