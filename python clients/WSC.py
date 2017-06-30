@@ -13,7 +13,8 @@
 
 # Tomislav Mamic, MIKROTRON d.o.o. 10.2.2016.
 
-from msvcrt import getch
+#from msvcrt import getch
+from getch import getch
 
 from autobahn.asyncio.websocket import WebSocketClientProtocol, \
     WebSocketClientFactory
@@ -35,25 +36,24 @@ class MyClientProtocol(WebSocketClientProtocol):
         # slanje komandi
         while True:
             key=getch()
-            if ord(key)==27:
+            
+            if ord(key)==113:
                 self.sendMessage('ss'.encode('ascii'))
                 quit()
-            if ord(key)==115:
+            if ord(key)==120:
                 cmd='ss'
-            if ord(key)==224:
-                key=getch()
-                if ord(key)==72:
-                    print("fwd")
-                    cmd='f'+chr(100)
-                if ord(key)==80:
-                    print("back")
-                    cmd='b'+chr(100)
-                if ord(key)==75:
-                    print("left")
-                    cmd='l'+chr(100)
-                if ord(key)==77:
-                    print("right")
-                    cmd='r'+chr(100)
+            if ord(key)==119:
+                print("fwd")
+                cmd='f'+chr(100)
+            if ord(key)==115:
+                print("back")
+                cmd='b'+chr(100)
+            if ord(key)==97:
+                print("left")
+                cmd='l'+chr(100)
+            if ord(key)==100:
+                print("right")
+                cmd='r'+chr(100)
             self.sendMessage(cmd.encode('ascii'))
 
     def onMessage(self, payload, isBinary):
