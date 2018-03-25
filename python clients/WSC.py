@@ -68,11 +68,11 @@ class MyClientProtocol(WebSocketClientProtocol):
 
 if __name__ == '__main__':
 
-    factory = WebSocketClientFactory(u"ws://192.168.0.161:9000")
+    factory = WebSocketClientFactory(u"ws://192.168.0.163:9000")
     factory.protocol = MyClientProtocol
 
     loop = asyncio.get_event_loop()
-    coro = loop.create_connection(factory, '192.168.0.161', 9000)
+    coro = loop.create_connection(factory, '192.168.0.163', 9000)
     loop.run_until_complete(coro)
     loop.run_forever()
     loop.close()
