@@ -26,3 +26,23 @@ module cylinder_quarter(r, h){
         translate ([-r-ex, -ex, -ex]) cube([r + ex, r + ex, h + 2*ex]);
     }
 }
+
+//Draws 2.54 mm male header pins
+module header_pin(rows=1, columns=1){
+    base_width = 2.54;
+    base_height = 2.54;
+    header_width = 0.508;
+    header_height = 5.08;
+    trans = base_width/2 - header_width/2;
+
+    for (i = [0: rows - 1]){
+        for (j = [0: columns -1]){
+            translate([j*base_width, i*base_width, 0]){
+                color("Black") cube([base_width, base_width, base_height]);
+                translate([trans , trans, base_height])
+                    color("Khaki") cube([header_width, header_width, header_height]);
+            }
+        }
+    }
+
+}

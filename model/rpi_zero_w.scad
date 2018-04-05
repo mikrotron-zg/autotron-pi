@@ -49,10 +49,6 @@ pi_cam_cy = pi_width/2; // center y coordinate of camera connector
 // GPIO dimensions
 pi_gpio_length = 50.8;
 pi_gpio_width = 5.08;
-pi_gpio_height1 = 2.54;
-pi_gpio_height2 = 5.08;
-pi_gpio_cx = pi_length/2; // center x coordinate of GPIO headers
-pi_gpio_cy = pi_width - pi_mh_center; // center y coordinate of GPIO headers
 
 // Processor dimensions
 pi_proc_width = 12;
@@ -102,25 +98,11 @@ module pi_connectors(){
                     pi_cam_cy - pi_cam_length/2, 0]) color("Beige")
             cube([pi_cam_width, pi_cam_length, pi_cam_height]);
     // Draw GPIO 2x20 headers
-    translate([pi_gpio_cx - pi_gpio_length/2, pi_gpio_cy - pi_gpio_width/2, 0]){
-        color("Black") cube([pi_gpio_length, pi_gpio_width, pi_gpio_height1]);
-        translate([0, 0, pi_gpio_height1]) header_pin(2, 20);
-    }
+    translate([pi_length/2 - pi_gpio_length/2, pi_width - pi_mh_center - pi_gpio_width/2, 0]) 
+        header_pin(2, 20);
 }
 
 module pi_usb(){
     cube([pi_usb_length, pi_usb_width, pi_hdmi_height]);
 }
 
-module header_pin(rows=1, columns=1){
-    header_width = 0.508;
-    header_height = 5.08;
-    header_spacing = 2.54;
-    translate ([header_spacing/2, header_spacing/2, 0]){
-        for (i = [0: rows - 1]){
-            for (j = [0: columns -1])
-                translate([j*header_spacing, i*header_spacing, 0])
-                    color("Khaki") cube([header_width, header_width, header_height]);
-        }
-    }
-}
