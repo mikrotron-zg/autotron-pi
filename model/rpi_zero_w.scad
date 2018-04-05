@@ -57,9 +57,9 @@ pi_proc_cx = 26;
 pi_proc_cy = 13;
 
 // Entry point
-pi_zero_w();
+rpi_zero_w();
 
-module pi_zero_w(){
+module rpi_zero_w(){
     pi_board();
     translate([0, 0, pi_height]) pi_connectors();
     translate([pi_proc_cx - pi_proc_width/2, pi_proc_cy - pi_proc_width/2, pi_height])
