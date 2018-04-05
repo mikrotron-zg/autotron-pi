@@ -30,7 +30,7 @@ pi_cam();
 module pi_cam(){
     // Draw board
     difference(){
-        color("DarkGreen") cube([pi_cam_length, pi_cam_width, pi_cam_thickness]);
+        color("DarkSlateGray") cube([pi_cam_length, pi_cam_width, pi_cam_thickness]);
         // Mount holes
         for (i = [0:len(pi_cam_mh_xy)-1]) pi_cam_mount_hole(pi_cam_mh_xy [i]);
     }
@@ -52,7 +52,8 @@ module pi_cam_lens(){
     glass_radius = 6.5;
     
     color("DimGray"){
-        cube([base_width, base_width, base_height], center=true);
+        translate([0, 0, base_height/2]) 
+            cube([base_width, base_width, base_height], center=true);
         cylinder(d=base_width, h=body_height);
         translate([0, 0, body_height - 3]) cylinder(d=base_width+2, 3);
     }
